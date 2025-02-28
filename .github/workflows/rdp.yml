@@ -25,8 +25,8 @@ jobs:
     - name: Create RDP User
       run: |
         $username = "Plug"
-        # Set the password as "accounts"
-        $password = ConvertTo-SecureString "accounts" -AsPlainText -Force
+        # Use a more complex password
+        $password = ConvertTo-SecureString "Accounts123!" -AsPlainText -Force
         New-LocalUser -Name $username -Password $password -FullName "Plug Account" -Description "Remote User"
         Add-LocalGroupMember -Group "Administrators" -Member $username
 
