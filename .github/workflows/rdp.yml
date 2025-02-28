@@ -25,6 +25,7 @@ jobs:
     - name: Create RDP User
       run: |
         $username = "Plug"
+        # Set the password as "accounts"
         $password = ConvertTo-SecureString "accounts" -AsPlainText -Force
         New-LocalUser -Name $username -Password $password -FullName "Plug Account" -Description "Remote User"
         Add-LocalGroupMember -Group "Administrators" -Member $username
@@ -38,4 +39,4 @@ jobs:
 
     - name: Keep GitHub Actions Runner Alive
       run: |
-        Start-Sleep -Seconds 84600
+        Start-Sleep -Seconds 4320000  # Sleep for 50 days
